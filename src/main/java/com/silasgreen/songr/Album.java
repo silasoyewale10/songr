@@ -1,6 +1,16 @@
 package com.silasgreen.songr;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Album {
+    @Id  //makes the long id the id.
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //serializes id. Doesn't say it is the id. Just serializes the id.
+    long id;
+
     private String title;
     private String artist;
     private int lengthInSeconds;
@@ -12,6 +22,9 @@ public class Album {
         this.songCount = songCount;
         this.lengthInSeconds = lengthInSeconds;
         this.imageUrl = imageUrl;
+    }
+    public Album (){
+
     }
 
     public String toString(){
