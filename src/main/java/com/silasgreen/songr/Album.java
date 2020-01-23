@@ -1,15 +1,16 @@
 package com.silasgreen.songr;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Album {
     @Id  //makes the long id the id.
     @GeneratedValue(strategy = GenerationType.IDENTITY) //serializes id. Doesn't say it is the id. Just serializes the id.
     long id;
+
+    @OneToMany(mappedBy = "album")
+    public List<ReactionToAlbum> albumExpressions;
 
     private String title;
     private String artist;
@@ -23,6 +24,9 @@ public class Album {
         this.lengthInSeconds = lengthInSeconds;
         this.imageUrl = imageUrl;
     }
+
+
+
     public Album (){
 
     }
@@ -62,6 +66,9 @@ public class Album {
     }
     public int getSongCount() {
         return songCount;
+    }
+    public long getId() {
+        return id;
     }
     private int songCount;
 
