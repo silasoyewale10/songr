@@ -22,5 +22,15 @@ In the application property, specify your
 3. Database password
 4. Set hibernate auto to update.
 
+## Database
+Implemented in this app is the database. To view the song table, follow the commands below
+1. in your terminal, run psql
+2. type \c albums
+3. type \dt to see all tables in the database.
+You should see one for albums and one for songs.
+type select * from albums; to see the list of albums
+type select * from songs; to see the list of songs.
+
+
 
 
