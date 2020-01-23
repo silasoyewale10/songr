@@ -14,8 +14,21 @@
         <span th:text="${album.artist}"></span><br>
         <span th:text="${album.songCount}"></span><br>
         <span th:text="${album.lengthInSeconds}"></span> <br>
-        <span th:text="${album.imageUrl}"></span> <br><br><br>
+        <span th:text="${album.imageUrl}"></span><br>
+        <span th:text="${album.albumExpressions.toString()}"></span>
 
+        <form action="/reaction" method="POST">
+            <h2>Add a Reaction</h2>
+            <input type="hidden" th:value="${album.id}" name="id">
+            Action: <input type="text" name="action">
+            Intensity: <input type="text" name="intensity">
+            <input type="submit" value="add reaction">
+        </form>
+
+        <form th:action="'/albums/delete/' +${album.id}" method="POST">
+            <button type="submit">Delete Album</button>
+        </form>
+<br><br>
     </li>
 
 </ul>
