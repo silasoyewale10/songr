@@ -53,15 +53,17 @@ public class HomeController {
         return new RedirectView("/albums");
     }
     @PostMapping("/reaction")
-    public RedirectView addReaction(long id, String action, int intensity){
+    public RedirectView addSong(long id, String title, int length, int trackNumber){
         //find the right album,
         Album myAlbum = albumRepository.getOne(id);
         // make a new reaction with the deets of a form.
-        ReactionToAlbum newReaction = new ReactionToAlbum(action, intensity);
+//        ReactionToAlbum newReaction = new ReactionToAlbum(action, intensity);
+        Song newSong = new Song(title, length, trackNumber);
+        newSong.album = myAlbum;
         //add the reaction to the expression
-        newReaction.album = myAlbum;
+        newSong.album = myAlbum;
         //save the reaction
-        albumReactionRepository.save(newReaction);
+        albumReactionRepository.save(newSong);
         //redirect them
         return new RedirectView("/albums");
     }

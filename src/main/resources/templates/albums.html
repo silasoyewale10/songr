@@ -18,11 +18,14 @@
         <span th:text="${album.albumExpressions.toString()}"></span>
 
         <form action="/reaction" method="POST">
-            <h2>Add a Reaction</h2>
+            <h2>Add a New Song</h2>
             <input type="hidden" th:value="${album.id}" name="id">
-            Action: <input type="text" name="action">
-            Intensity: <input type="text" name="intensity">
-            <input type="submit" value="add reaction">
+            Title: <input type="text" name="title">
+            Length: <input type="text" name="length">
+            TrackNumber: <input type="text" name="trackNumber">
+
+
+            <input type="submit" value="add song to album">
         </form>
 
         <form th:action="'/albums/delete/' +${album.id}" method="POST">

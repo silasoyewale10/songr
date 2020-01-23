@@ -10,7 +10,7 @@ public class Album {
     long id;
 
     @OneToMany(mappedBy = "album")
-    public List<ReactionToAlbum> albumExpressions;
+    public List<Song> albumExpressions;
 
     private String title;
     private String artist;
